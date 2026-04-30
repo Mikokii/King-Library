@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:KingLibrary.Presentation.ViewModels"
+             x:Class="KingLibrary.Presentation.Views.BookDetailsPage"
+             x:DataType="vm:BookDetailsViewModel"
+             BackgroundColor="{StaticResource AppBackground}"
+             Title="Details">
+
+    <ScrollView>
+
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- IMAGE CARD -->
+            <Border StrokeThickness="0"
+                    StrokeShape="RoundRectangle 20"
+                    BackgroundColor="{StaticResource AppSurface}">
+
+                <Border.Shadow>
+                    <Shadow Brush="Black"
+                            Offset="0,10"
+                            Opacity="0.5"
+                            Radius="15"/>
+                </Border.Shadow>
+
+                <Image Source="{Binding Book.ImageUrl}"
+                       HeightRequest="320"
+                       Aspect="AspectFill"/>
+            </Border>
+
+            <!-- INFO CARD -->
+            <Border StrokeThickness="0"
+                    StrokeShape="RoundRectangle 20"
+                    BackgroundColor="{StaticResource AppSurface}"
+                    Padding="16">
+
+                <VerticalStackLayout Spacing="10">
+
+                    <!-- TITLE -->
+                    <Label Text="{Binding Book.Title}"
+                           FontSize="26"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource TextPrimary}"/>
+
+                    <!-- META -->
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="{Binding Book.Publisher}"
+                               TextColor="{StaticResource TextSecondary}"
+                               FontSize="14"/>
+
+                        <Label Text="•"
+                               TextColor="{StaticResource TextSecondary}"/>
+
+                        <Label Text="{Binding Book.Year}"
+                               TextColor="{StaticResource TextSecondary}"
+                               FontSize="14"/>
+                    </HorizontalStackLayout>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <!-- DESCRIPTION CARD -->
+            <Border StrokeThickness="0"
+                    StrokeShape="RoundRectangle 20"
+                    BackgroundColor="{StaticResource AppSurface}"
+                    Padding="16">
+
+                <VerticalStackLayout Spacing="10">
+
+                    <Label Text="Description"
+                           TextColor="{StaticResource TextPrimary}"
+                           FontAttributes="Bold"
+                           FontSize="18"/>
+
+                    <Label Text="{Binding Description}"
+                           TextColor="{StaticResource TextSecondary}"
+                           LineBreakMode="WordWrap"/>
+                </VerticalStackLayout>
+
+            </Border>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="KingLibrary.Application/KingLibrary.Application.csproj" />
+  <Project Path="KingLibrary.Domain/KingLibrary.Domain.csproj" />
+  <Project Path="KingLibrary.Infrastructure/KingLibrary.Infrastructure.csproj" />
+  <Project Path="KingLibrary.Presentation/KingLibrary.Presentation.csproj" />
+  <Project Path="KingLibrary.Tests/KingLibrary.Tests.csproj" />
+</Solution>

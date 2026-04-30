@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KingLibrary.Presentation.Views.MainPage"
+             BackgroundColor="{StaticResource AppBackground}">
+
+
+    <CollectionView ItemsSource="{Binding Groups}"
+                    SelectionMode="None"
+                    SelectedItem="{Binding SelectedGroup, Mode=TwoWay}">
+
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+
+                <VerticalStackLayout Spacing="20"
+                                     Padding="0,10">
+
+                    <!-- HEADER -->
+                    <Grid ColumnDefinitions="Auto,*,Auto"
+                        Padding="16,0"
+                        VerticalOptions="Center">
+
+                        <Label Grid.Column="0"
+                            Text="{Binding Letter}"
+                            FontSize="26"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource TextPrimary}"
+                            VerticalOptions="Center"/>
+
+                        <BoxView Grid.Column="1"
+                                Opacity="0"/>
+
+                        <!-- Circular button on the right -->
+                        <ImageButton Grid.Column="2"
+                                     Source="add_circle.svg"
+                                     WidthRequest="40"
+                                     HeightRequest="40"
+                                     BackgroundColor="Transparent"
+                                     Command="{Binding BindingContext.AddBookCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
+                                     CommandParameter="{Binding Letter}"
+                                     HorizontalOptions="End"
+                                     VerticalOptions="Center" />
+                    </Grid>
+
+                    <!-- HORIZONTAL LIST -->
+                    <CollectionView ItemsSource="{Binding Books}"
+                                    ItemsLayout="HorizontalList"
+                                    HorizontalScrollBarVisibility="Never"
+                                    HeightRequest="280">
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+
+                                <Border StrokeThickness="0"
+                                        StrokeShape="RoundRectangle 16"
+                                        BackgroundColor="{StaticResource AppSurface}"
+                                        Margin="10,0">
+
+                                    <!-- TAP HANDLING (CLEAN MVVM WAY) -->
+                                    <Border.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding BindingContext.OpenBookCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
+                                            CommandParameter="{Binding .}" />
+                                    </Border.GestureRecognizers>
+
+                                    <Border.Shadow>
+                                        <Shadow Brush="Black"
+                                                Offset="0,6"
+                                                Opacity="0.4"
+                                                Radius="10"/>
+                                    </Border.Shadow>
+
+                                    <VerticalStackLayout WidthRequest="140">
+
+                                        <!-- IMAGE -->
+                                        <Image Source="{Binding ImageUrl}"
+                                               HeightRequest="190"
+                                               Aspect="AspectFill"/>
+
+                                        <!-- TEXT -->
+                                        <VerticalStackLayout Padding="8" Spacing="2">
+
+                                            <Label Text="{Binding Title}"
+                                                   FontAttributes="Bold"
+                                                   LineBreakMode="TailTruncation"
+                                                   MaxLines="2"
+                                                   TextColor="{StaticResource TextPrimary}"/>
+
+                                            <Label Text="{Binding Year}"
+                                                   FontSize="12"
+                                                   TextColor="{StaticResource TextSecondary}"/>
+
+                                            <Label Text="{Binding Publisher}"
+                                                   FontSize="11"
+                                                   TextColor="{StaticResource TextMuted}"
+                                                   LineBreakMode="TailTruncation"/>
+                                        </VerticalStackLayout>
+
+                                    </VerticalStackLayout>
+
+                                </Border>
+
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                    </CollectionView>
+
+                </VerticalStackLayout>
+
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+
+    </CollectionView>
+
+</ContentPage>

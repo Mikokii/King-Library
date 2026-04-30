@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KingLibrary.Presentation.Views.AddBookPage"
+             Title="Add Book"
+             BackgroundColor="{StaticResource AppBackground}">
+    <VerticalStackLayout Padding="20" Spacing="15">
+       
+       <Border StrokeThickness="0"
+               StrokeShape="RoundRectangle 10"
+               BackgroundColor="{StaticResource AppSurface}"
+               >
+              
+              <Entry Placeholder="Title" Text="{Binding Title}" TextColor="{StaticResource TextPrimary}" PlaceholderColor="{StaticResource TextMuted}"/>
+       </Border>
+       <Label Text="{Binding TitleError}"
+              TextColor="Red"
+              FontSize="12" />
+
+       <Border StrokeThickness="0"
+               StrokeShape="RoundRectangle 10"
+               BackgroundColor="{StaticResource AppSurface}">        
+              
+              <Entry Placeholder="Publisher" Text="{Binding Publisher}" TextColor="{StaticResource TextPrimary}" PlaceholderColor="{StaticResource TextMuted}"/>
+       </Border>
+       <Label Text="{Binding PublisherError}"
+              TextColor="Red"
+              FontSize="12" />
+
+       <Border StrokeThickness="0"
+               StrokeShape="RoundRectangle 10"
+               BackgroundColor="{StaticResource AppSurface}">        
+              
+              <Entry Placeholder="Year" Keyboard="Numeric" Text="{Binding Year}" TextColor="{StaticResource TextPrimary}" PlaceholderColor="{StaticResource TextMuted}"/>
+       </Border>
+
+       <Label Text="{Binding YearError}"
+              TextColor="Red"
+              FontSize="12" />
+       
+       <Border StrokeThickness="0"
+               StrokeShape="RoundRectangle 10"
+               BackgroundColor="{StaticResource AppSurface}">
+              
+              <Entry Placeholder="Image URL" Text="{Binding ImageUrl}" TextColor="{StaticResource TextPrimary}" PlaceholderColor="{StaticResource TextMuted}" />
+       </Border>
+
+       <Button Text="Save"
+               Command="{Binding SaveCommand}" />
+
+    </VerticalStackLayout>
+</ContentPage>
