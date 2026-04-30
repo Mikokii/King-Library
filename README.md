@@ -22,8 +22,8 @@ Dane o książkach są pobierane przy pierwszym uruchomieniu z pomocą REST API 
 * Czytelny podział na warstwy
 
 ## Zrzuty ekranu aplikacji
-![alt text]()
+![img](https://github.com/user-attachments/assets/783cc7ad-7911-4f10-83df-655292a56204)
 ---
-![alt text]()
+![img](https://github.com/user-attachments/assets/08c15c43-7d4f-47ce-89f3-1dbf861607cb)
 ---
-![alt text]()
+![img](https://github.com/user-attachments/assets/1d4e293b-b9d8-4e67-8124-3684a93905c8)
